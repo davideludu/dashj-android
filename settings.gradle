@@ -1,1 +1,3 @@
+include ':dashj-scrypt'
+include ':dashj-x11'
 include ':dashj-bls'
