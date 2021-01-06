@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-//apply plugin: 'maven-publish'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
@@ -53,83 +52,13 @@ android {
 version '0.17.5'
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:support-annotations:28.0.0'
-
-    // Room
-    implementation "javax.annotation:jsr250-api:1.0"
-
     api 'org.dashj:dashj-bls:0.17.5'
-
-    //implementation 'de.sfuhrm:saphir-hash-jca:3.0.5'
 }
 
 repositories {
     mavenLocal()
     mavenCentral()
 }
-
-//task sourcesJar(type: Jar) {
-//    classifier 'sources'
-//    from android.sourceSets.main
-//}
-
-//artifacts {
-//    archives sourcesJar
-//}
-
-// Because the components are created only during the afterEvaluate phase, you must
-// configure your publications using the afterEvaluate() lifecycle method.
-/*afterEvaluate {
-    publishing {
-        publications {
-            // Creates a Maven publication called "release".
-            release(MavenPublication) {
-                // Applies the component for the release build variant.
-                println(components)
-                from components.release
-
-                // You can then customize attributes of the publication as shown below.
-                //groupId = 'com.example.MyLibrary'
-                //artifactId = 'final'
-                //version = '1.0'
-            }
-            // Creates a Maven publication called “debug”.
-            debug(MavenPublication) {
-                // Applies the component for the debug build variant.
-                from components.debug
-
-                //groupId = 'com.example.MyLibrary'
-                //artifactId = 'final-debug'
-                //version = '1.0'
-            }
-        }
-    }
-}*/
-
-//assemble.dependsOn(publishToMavenLocal)
-//
-//task sourceJar(type: Jar) {
-//    from android.sourceSets.main.java.srcDirs
-//    classifier "sources"
-//}
-
-/*publishing {
-    publications {
-        release(MavenPublication) {
-            groupId 'org.dashj'
-            artifactId 'dashj-bls-android'
-            version '0.17.5'
-            artifact(sourceJar)
-            artifact("$buildDir/outputs/aar/dashj-bls-release.aar")
-        }
-    }
-    repositories {
-        maven {
-            url "$buildDir/repo"
-        }
-    }
-}*/
 
 apply from: 'install.gradle'
 apply from: 'bintray.gradle'
