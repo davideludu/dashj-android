@@ -9,7 +9,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
-        versionName "0.17.5"
+        versionName "0.18"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -49,15 +49,16 @@ android {
     }
 }
 
-version '0.17.5'
+version '0.18'
 
 dependencies {
-    api 'org.dashj:dashj-bls:0.17.5'
+    api 'org.dashj:dashj-bls:0.18-SNAPSHOT'
 }
 
 repositories {
     mavenLocal()
     mavenCentral()
+    jcenter()
 }
 
 apply from: 'install.gradle'
