@@ -1,7 +1,11 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
-
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+    id 'maven'
+    id 'signing'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
 android {
     compileSdkVersion 29
 
@@ -61,5 +65,74 @@ repositories {
     jcenter()
 }
 
-apply from: 'install.gradle'
-apply from: 'bintray.gradle'
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+
+signing {
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            snapshotRepository(url: "https://s01.oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            pom.project {
+                name 'DashJ BLS'
+                packaging 'aar'
+                groupId 'org.dashj.android'
+                artifactId 'dashj-bls-android'
+                version '0.17.5'
+                description 'DashJ BLS Libary for Android'
+                url 'https://github.com/HashEngineering/dashj-bls-android'
+
+                scm {
+                    connection 'scm:svn:https://github.com/HashEngineering/dashj-bls-android'
+                    developerConnection 'scm:svn:https://github.com/HashEngineering/dashj-bls-android'
+                    url 'https://github.com/HashEngineering/dashj-bls-android'
+                }
+
+                licenses {
+                    license {
+                        name 'MIT'
+                        url 'https://opensource.org/licenses/MIT'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'hashengineering'
+                        name 'HashEngineering'
+                        email 'hashengineeringsolutions@gmail.com'
+                    }
+                }
+            }
+        }
+    }
+}
