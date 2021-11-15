@@ -48,6 +48,8 @@ android {
             path 'cpp/CMakeLists.txt'
         }
     }
+
+    ndkVersion "21.1.6352462"
 }
 
 version '0.18.1'
