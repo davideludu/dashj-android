@@ -22,4 +22,4 @@ jobs:
       run: |
         $ANDROID_HOME/tools/bin/sdkmanager --install "ndk;21.3.6528147" --channel=0
     - name: Build
-      run: ./gradlew assemble
+      run: ./gradlew assembleRelease
