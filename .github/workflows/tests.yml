@@ -22,6 +22,6 @@ jobs:
       run: |
         $ANDROID_HOME/tools/bin/sdkmanager --install "ndk;21.3.6528147" --channel=0
     - name: Get specific version CMake, v3.21.2
-      uses: lukka/get-cmake@v3.21.2   ⟸ THIS IS THE ONE LINER YOU NEED
+      uses: lukka/get-cmake@v3.21.2
     - name: Build
       run: ./gradlew assembleRelease
