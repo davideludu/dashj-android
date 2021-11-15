@@ -21,5 +21,6 @@ jobs:
     - name: Install NDK
       run: |
         $ANDROID_HOME/tools/bin/sdkmanager --install "ndk;21.3.6528147" --channel=0
+        $ANDROID_HOME/tools/bin/sdkmanager --install "cmake;3.10.2" --channel=0
     - name: Build
       run: ./gradlew assembleRelease
