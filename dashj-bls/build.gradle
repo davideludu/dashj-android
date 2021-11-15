@@ -3,8 +3,6 @@ plugins {
     id 'maven-publish'
     id 'maven'
     id 'signing'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
 }
 android {
     compileSdkVersion 29
@@ -37,7 +35,6 @@ android {
         main.java.srcDirs += 'src/main/java'
     }
 
-    kotlinOptions { jvmTarget = '1.8' }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
