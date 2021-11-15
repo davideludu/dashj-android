@@ -61,7 +61,6 @@ dependencies {
 repositories {
     mavenLocal()
     mavenCentral()
-    jcenter()
 }
 
 task javadoc(type: Javadoc) {
