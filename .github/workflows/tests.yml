@@ -24,4 +24,4 @@ jobs:
     - name: Setup cmake
       run: $ANDROID_HOME/tools/bin/sdkmanager --install "cmake;3.10.2.4988404" --channel=0
     - name: Build
-      run: ./gradlew assembleRelease --debug
+      run: ./gradlew assembleRelease
