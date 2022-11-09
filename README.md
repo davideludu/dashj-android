@@ -1,6 +1,15 @@
 DashJ BLS for Android
 
-Publish to Maven
+```bash
+git submodule update --init --recursive
+./gradlew build
 ```
-./gradlew uploadArchives
+
+Publish to Maven Local
+```
+./gradlew publishToMavenLocal
+```
+Publish to Maven Central
+```
+./gradlew publish
 ```
