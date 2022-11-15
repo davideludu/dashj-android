@@ -14,16 +14,9 @@ android {
         versionCode 1
         versionName "1.2.5-SNAPSHOT"
 
-        //externalNativeBuild {
-        //    cmake {
-                //cFlags '-DHAVE_CONFIG_H -DWORD=32'
-        //        cppFlags ""
-        //    }
-        //}
         defaultConfig {
             ndk {
-                //abiFilters 'arm64-v8a', 'x86_64'
-                //ldLibs 'log'
+                // no config needed
             }
         }
 
@@ -121,8 +114,8 @@ afterEvaluate {
 
                     licenses {
                         license {
-                            //name 'MIT'
-                            //url 'https://opensource.org/licenses/MIT'
+                            name = 'MIT'
+                            url = 'https://opensource.org/licenses/MIT'
                         }
                     }
                     developers {
@@ -159,61 +152,3 @@ afterEvaluate {
         sign publishing.publications.release
     }
 }
-
-/*signing {
-    required { gradle.taskGraph.hasTask("publish") }
-    println("Components: " + publishing.publications)
-    sign publishing.publications.mavenAar
-}*/
-
-
-/*signing {
-    sign configurations.archives
-}
-
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-            repository(url: "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/") {
-                authentication(userName: ossrhUsername, password: ossrhPassword)
-            }
-
-            snapshotRepository(url: "https://s01.oss.sonatype.org/content/repositories/snapshots/") {
-                authentication(userName: ossrhUsername, password: ossrhPassword)
-            }
-
-            pom.project {
-                name 'DashJ BLS'
-                packaging 'aar'
-                groupId 'org.dashj.android'
-                artifactId 'dashj-bls-android'
-                version '0.18.1'
-                description 'DashJ BLS Libary for Android'
-                url 'https://github.com/HashEngineering/dashj-bls-android'
-
-                scm {
-                    connection 'scm:svn:https://github.com/HashEngineering/dashj-bls-android'
-                    developerConnection 'scm:svn:https://github.com/HashEngineering/dashj-bls-android'
-                    url 'https://github.com/HashEngineering/dashj-bls-android'
-                }
-
-                licenses {
-                    license {
-                        name 'MIT'
-                        url 'https://opensource.org/licenses/MIT'
-                    }
-                }
-
-                developers {
-                    developer {
-                        id 'hashengineering'
-                        name 'HashEngineering'
-                        email 'hashengineeringsolutions@gmail.com'
-                    }
-                }
-            }
-        }
-    }
-}*/
