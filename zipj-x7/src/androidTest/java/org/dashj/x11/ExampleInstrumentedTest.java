@@ -1,4 +1,4 @@
-package org.dashj.x11;
+package org.zipj.x7;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -20,6 +20,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("org.dashj.x11.test", appContext.getPackageName());
+        assertEquals("org.zipj.x7.test", appContext.getPackageName());
     }
 }

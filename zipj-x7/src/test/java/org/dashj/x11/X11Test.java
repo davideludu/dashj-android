@@ -1,4 +1,4 @@
-package org.dashj.x11;
+package org.zipj.x7;
 
 import org.junit.Test;
 
@@ -9,9 +9,9 @@ import static org.junit.Assert.*;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-public class X11Test {
+public class X7Test {
     @Test
-    public void x11() {
-        assertEquals(4, 2 + 2);
+    public void x7() {
+        assertEquals(4, 2 + 2, 1111111);
     }
 }

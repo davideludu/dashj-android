@@ -80,7 +80,7 @@ afterEvaluate {
                 from components.release
 
                 pom {
-                    name = 'DashJ X11'
+                    name = 'ZipJ X7'
                     description = 'Dash BLS Android Library'
                     url = 'https://github.com/dashpay/dashj-bls-android'
 
@@ -145,10 +145,10 @@ uploadArchives {
             }
 
             pom.project {
-                name 'DashJ X11'
+                name 'DashJ X7'
                 packaging 'aar'
-                groupId 'org.dashj.android'
-                artifactId 'dashj-x11-android'
+                groupId 'org.zipj.android'
+                artifactId 'zipj-x7-android'
                 version '0.17.5'
                 description 'DashJ X11 Libary for Android'
                 url 'https://github.com/HashEngineering/dashj-bls-android'
